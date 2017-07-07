@@ -5,6 +5,10 @@
   <input type="text" value.bind="message">
   <a href=""  href.bind="message">${message}</a>
   <button type="button" click.trigger="alert()">${message}</button>
+
+  <require from="./hello.html"></require>
+  <hello h1-message="H1" h2-message="H2"></hello>
   
-  
+  <p repeat.for="number of repeater">${number}</p>
+
 </template>
