@@ -15,15 +15,20 @@ export class App {
         route: [''],
         name: 'home',
         moduleId: 'home/index',
-        title: 'Info Enter',
-        redirect: 'main'
+        title: 'AuRun contacts'
       },
       {
-        route: ['main'],
-        name: 'main',
-        moduleId: 'home/index',
-        title: 'Info Enter'
-      }  
+        route: ['insert'],
+        name: 'insert',
+        moduleId: 'insert/index',
+        title: 'Inserting new contacts'
+      },
+      {
+        route: ['edit/id'],
+        name: 'edit',
+        moduleId: 'edit/index',
+        title: 'Editing current contacts'
+      }
     ])
   }
   
