@@ -1,14 +1,8 @@
-import {HttpClient, json} from 'aurelia-fetch-client';
-
-let httpClient = new HttpClient();
-
+import { Contact } from './../Contact';
 
 export class Home{
     constructor(){
-        this.button = 'Click here to get server data';
-    }
-    
-    getFromServer(){
-        console.log('HERE');
+        this.heading = 'List of contacts';
+        this.contacts = new Contact().getData();
     }
 };

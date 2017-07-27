@@ -1,5 +1,20 @@
 <template>
-    <h1>Home / Index</h1>
+    <h1>${heading}</h1>
     
-    <button type="button" click.trigger="getFromServer()">${button}</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Telephone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="contact of contacts">
+                <td> ${contact.name}</td>
+                <td> ${contact.lastname}</td>
+                <td> ${contact.telephone}</td>
+            </tr>
+        </tbody>
+    </table>
 </template>
