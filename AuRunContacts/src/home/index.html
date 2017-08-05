@@ -7,6 +7,7 @@
                 <th>Name</th>
                 <th>Lastname</th>
                 <th>Telephone</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@
                 <td> ${contact.name}</td>
                 <td> ${contact.lastname}</td>
                 <td> ${contact.telephone}</td>
+                <td><a router-href="router: edit; params.bind: { name: contact.name}">Edit</a></td>
             </tr>
         </tbody>
     </table>

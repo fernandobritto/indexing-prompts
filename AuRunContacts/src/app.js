@@ -24,7 +24,7 @@ export class App {
         title: 'Inserting new contacts'
       },
       {
-        route: ['edit/id'],
+        route: ['edit/:name'],
         name: 'edit',
         moduleId: 'edit/index',
         title: 'Editing current contacts'
