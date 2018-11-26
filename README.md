@@ -1,3 +1,3 @@
 # agenda_AuRunContacts
-Agenda de Contatos 
+**Agenda de Contatos** 
 Aplicação desenvolvida com o framework AureliaJS.
