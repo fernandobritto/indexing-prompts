@@ -37,18 +37,17 @@ $app->post('/api/vehicles/new', function(Request $request, Response $response){
     $price = $request->getParam('price');
     $description = $request->getParam('description');
 
-    $sql = "INSERT INTO carshop.vehicles (model, brand, yearCar, price, description) VALUES 
-            (:model, :brand, :yearCar, :price, :description)";
+    $sql = "INSERT INTO carshop.vehicles (model, brand, yearCar, price, description) VALUES (?, ?, ?, ?, ?)";
     try{
         $db = new Db();
         $db = $db->connectionDB();
         $result = $db->prepare($sql);
 
-        $result->bindParam(':model', $model);
-        $result->bindParam(':brand', $brand);
-        $result->bindParam(':yearCar', $yearCar);
-        $result->bindParam(':price', $price);
-        $result->bindParam(':description', $description);
+        $result->bindParam(1, $model);
+        $result->bindParam(2, $brand);
+        $result->bindParam(3, $yearCar);
+        $result->bindParam(4, $price);
+        $result->bindParam(5, $description);
 
         $result->execute();
         echo json_encode("New car successfully added");
