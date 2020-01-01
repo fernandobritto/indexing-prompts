@@ -62,7 +62,6 @@ $app->post('/api/vehicles/new', function(Request $request, Response $response){
 });
 
 
-/*
 // PUT
 $app->put('/api/vehicles/modify/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute('id');
@@ -73,11 +72,9 @@ $app->put('/api/vehicles/modify/{id}', function(Request $request, Response $resp
     $description = $request->getParam('description');
 
     $sql = "UPDATE vehicles SET 
-            model = :model, brand = :brand,
-            yearCar = :yearCar, price = :price,
-            description = :description
-            WHERE id = $id
-            ";
+            model = ?, brand = ?,
+            yearCar = ?, price = ?,
+            description = ?  WHERE id = $id ";
 
 
     try{
@@ -85,11 +82,11 @@ $app->put('/api/vehicles/modify/{id}', function(Request $request, Response $resp
         $db = $db->connectionDB();
         $result = $db->prepare($sql);
 
-        $result->bindParam(':model', $model);
-        $result->bindParam(':brand', $brand);
-        $result->bindParam(':yearCar', $yearCar);
-        $result->bindParam(':price', $price);
-        $result->bindParam(':description', $description);
+        $result->bindParam(1, $model);
+        $result->bindParam(2, $brand);
+        $result->bindParam(3, $yearCar);
+        $result->bindParam(4, $price);
+        $result->bindParam(5, $description);
 
         $result->execute();
         echo json_encode("car information successfully modified");
@@ -98,7 +95,7 @@ $app->put('/api/vehicles/modify/{id}', function(Request $request, Response $resp
         $db = null;
 
     }catch (PDOException $e){
-        echo '{ "error": {"text":'.$e->getMessage().'}';
+        echo ' "error": {"text":'.$e->getMessage().'}';
     }
 });
 
@@ -115,17 +112,17 @@ $app->delete('/api/vehicles/delete/{id}', function(Request $request, Response $r
         $result = $db->prepare($sql);
         $result->execute();
         if($result->rowCount() > 0):
-            echo json_encode("car information successfully modified");
+            echo json_encode("car information successfully deleted");
         else:
-            echo json_encode("car information successfully modified");
+            echo json_encode("there are no records with this ID");
         endif;
 
         $result = null;
         $db = null;
 
     }catch (PDOException $e){
-        echo '{ "error": {"text":'.$e->getMessage().'}';
+        echo ' "error": {"text":'.$e->getLine().'}';
     }
 });
 
-*/
+
