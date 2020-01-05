@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cars extends Model
 {
-    protected $table = 'cars';
+    protected $table = 'vehicles';
 
     protected $fillable = [
         'name', 'description', 'model', 'date'
@@ -18,4 +18,6 @@ class Cars extends Model
     ];
 
     public $timestamps = false;
+
+
 }
