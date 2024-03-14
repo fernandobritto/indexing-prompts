@@ -1,0 +1,40 @@
+export enum MOVEMENT_TYPE {
+  ENTRY = 'ENTRY',
+  EXIT = 'EXIT'
+}
+
+export enum TRANSACTION_TYPE {
+  TRANSACTIONS = 'TRANSACTIONS',
+  ACQUISITION = 'ACQUISITION',
+  RECURRING = 'RECURRING'
+}
+
+export enum TRANSACTION_STATUS {
+  PAID = 'PAID',
+  PENDING = 'PENDING',
+  CANCELED = 'CANCELED',
+  EXPIRED = 'EXPIRED'
+}
+
+export enum CURRENCY_TYPE {
+  DOLLAR = 'DOLLAR',
+  EURO = 'EURO',
+  REAL = 'REAL',
+  POUND = 'POUND',
+  YEN = 'YEN',
+  FRANC = 'FRANC',
+  PESO = 'PESO',
+  RUPEE = 'RUPEE'
+}
+
+export enum PAYMENT_METHOD_TYPE {
+  CARD = 'CARD',
+  CASH = 'CASH',
+  CHECK = 'CHECK',
+  PIX = 'PIX'
+}
+
+export enum ACCOUNT_TYPE {
+  DEFAULT = 'DEFAULT',
+  COMMON = 'COMMON'
+}

@@ -1,0 +1,24 @@
+- Sid: FinanceSpotXRayPermissions
+  Effect: Allow
+  Action:
+    - xray:PutTraceSegments
+    - xray:PutTelemetryRecords
+  Resource: '*'
+
+- Sid: FinanceSpotDynamoDBPermissions
+  Effect: Allow
+  Action:
+    - dynamodb:Query
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:PutItem
+    - dynamodb:UpdateItem
+    - dynamodb:DeleteItem
+    - dynamodb:ConditionCheckItem
+    - dynamodb:TransactWriteItems    
+  Resource:
+    - Fn::GetAtt: [FinanceSpotTable, Arn]
+    - Fn::Join: ['', [Fn::GetAtt: ['FinanceSpotTable', 'Arn'], '/index/uuid']]
+    - Fn::Join: ['', [Fn::GetAtt: ['FinanceSpotTable', 'Arn'], '/index/transactionUUID']]
+    - Fn::Join: ['', [Fn::GetAtt: ['FinanceSpotTable', 'Arn'], '/index/finance-spot-index']]
+    - Fn::Join: ['', [Fn::GetAtt: ['FinanceSpotTable', 'Arn'], '/index/account-type-index']]

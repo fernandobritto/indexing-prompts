@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "target": "es5",
+    "outDir": ".build",
+    "moduleResolution": "node",
+    "lib": ["es2022"],
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@common/*": ["source/common/*"],
+      "@functions/*": ["source/functions/*"],
+      "@helpers/*": ["source/helpers/*"],
+      "@tests/*": ["tests/*"]
+    },
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules/**/*", ".serverless/**/*", ".webpack/**/*", "_warmup/**/*", ".vscode/**/*"]
+}
