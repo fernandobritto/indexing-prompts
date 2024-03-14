@@ -1,0 +1,94 @@
+health-check:
+  handler: source/functions/healthChecks/gatewayHealthCheck/handler.gatewayHealthCheck
+  events:
+    - http:
+        path: financial/healthCheck
+        method: get
+createAccount:
+  handler: source/functions/accounts/createAccounts/handler.createAccounts
+  events:
+    - http:
+        path: financial/accounts
+        method: post
+        cors: true
+        documentation: ${file(docs/endpoints.yml):createAccountDoc}
+updateAccount:
+  handler: source/functions/accounts/updateAccounts/handler.updateAccount
+  events:
+    - http:
+        path: financial/accounts/{uuid}
+        method: put
+        cors: true
+        documentation: ${file(docs/endpoints.yml):updateAccountDoc}
+findAccount:
+  handler: source/functions/accounts/findAccounts/handler.findAccounts
+  events:
+    - http:
+        path: financial/accounts
+        method: get
+        cors: true
+        documentation: ${file(docs/endpoints.yml):findAccountDoc}
+createFinancialMovements:
+  handler: source/functions/transactionsFinancial/createFinancial/handler.createFinancial
+  events:
+    - http:
+        path: financial/transactions
+        method: post
+        cors: true
+        documentation: ${file(docs/endpoints.yml):createFinancialDoc}
+findFinancialMovements:
+  handler: source/functions/transactionsFinancial/findFinancial/handler.findFinancial
+  events:
+    - http:
+        path: financial/transactions
+        method: get
+        cors: true
+        documentation: ${file(docs/endpoints.yml):findFinancialDoc}
+updateFinancialMovements:
+  handler: source/functions/transactionsFinancial/updateFinancial/handler.updateFinancial
+  events:
+    - http:
+        path: financial/transactions/{uuid}
+        method: put
+        cors: true
+        documentation: ${file(docs/endpoints.yml):updateFinancialDoc}
+deleteFinancialMovements:
+  handler: source/functions/transactionsFinancial/deleteFinancial/handler.deleteFinancial
+  events:
+    - http:
+        path: financial/transactions/{uuid}
+        method: delete
+        cors: true
+        documentation: ${file(docs/endpoints.yml):deleteFinancialDoc}
+createCategory:
+  handler: source/functions/categories/createCategory/handler.createCategory
+  events:
+    - http:
+        path: financial/categories
+        method: post
+        cors: true
+        documentation: ${file(docs/endpoints.yml):createCategoryDoc}
+findCategories:
+  handler: source/functions/categories/findCategory/handler.findCategories
+  events:
+    - http:
+        path: financial/categories
+        method: get
+        cors: true
+        documentation: ${file(docs/endpoints.yml):findCategoryDoc}
+updateCategory:
+  handler: source/functions/categories/updateCategory/handler.updateCategory
+  events:
+    - http:
+        path: financial/categories/{uuid}
+        method: put
+        cors: true
+        documentation: ${file(docs/endpoints.yml):updateCategoryDoc}
+deleteCategory:
+  handler: source/functions/categories/deleteCategory/handler.deleteCategory
+  events:
+    - http:
+        path: financial/categories/{uuid}
+        method: delete
+        cors: true
+        documentation: ${file(docs/endpoints.yml):deleteCategoryDoc}

@@ -1,0 +1,49 @@
+service: finance-spot
+frameworkVersion: '3'
+configValidationMode: error
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'homolog'}
+  region: ${opt:region, 'sa-east-1'}
+  runtime: nodejs18.x
+
+  stackTags:
+    Name: ${self:service}
+    Product: "finance-spot"
+
+  environment:
+    NODE_OPTIONS: --enable-source-maps
+    AWS_SERVICE_NAME: ${self:service}
+    AWS_D_REGION: ${aws:region}
+    AWS_STAGE_NAME: ${sls:stage}
+    AWS_FINANCIAL_DYNAMODB_TABLE_NAME:
+      Ref: FinanceSpotTable
+   
+  iam:
+    role:
+      statements: ${file(./serverless/iamroles.yml)}
+
+package:
+  individually: true
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+  documentation: ${file(docs/documentation.yml)}
+  prune:
+    automatic: true
+    number: 1
+
+functions:
+  - ${file(./serverless/functions.yml)}
+
+resources:
+  - ${file(./serverless/resources.yml)}
+
+plugins:
+  - serverless-webpack
+  - serverless-openapi-documenter
+  - serverless-plugin-resource-tagging
+  - serverless-prune-plugin
+  - serverless-offline
