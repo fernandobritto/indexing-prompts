@@ -1,0 +1,25 @@
+name: UpdateAccountRequestBody
+description: PUT /financial expected request body
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        updateAccount:
+            type: object
+            properties:
+              accountName:
+                type: string
+                example: 'My Account'
+              financialInstitution:
+                type: string
+                example: 'My Financial Institution'
+              openingBalance:
+                type: number
+                example: 100000.00
+              currency:
+                type: string
+                example: 'EURO'
+              description:
+                type: string
+                example: 'My Account'

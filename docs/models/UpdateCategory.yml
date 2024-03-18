@@ -1,0 +1,13 @@
+name: UpdateCategoryRequestBody
+description: PUT /category expected request body
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        updateCategory:
+          type: object
+          properties:
+            categoryName:
+              type: string
+              example: 'Category new Name'

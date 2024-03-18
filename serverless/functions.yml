@@ -1,9 +1,3 @@
-health-check:
-  handler: source/functions/healthChecks/gatewayHealthCheck/handler.gatewayHealthCheck
-  events:
-    - http:
-        path: financial/healthCheck
-        method: get
 createAccount:
   handler: source/functions/accounts/createAccounts/handler.createAccounts
   events:

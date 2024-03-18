@@ -1,0 +1,38 @@
+name: UpdateFinancialRequestBody
+description: PUT /financial expected request body
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        updateFinancial:
+          type: object
+          properties:
+            accountId:
+              type: string
+              description: Account ID
+              example: 'b81896f3-bbe0-458d-b818-1b732e453548'
+            category:
+              type: string
+              description: Category ID
+              example: 'c5ada9cf-20fe-4f6f-9a59-d01c90943821'
+            date:
+              type: string
+              description: Date
+              example: '2024-04-20T00:00:00Z'
+            value:
+              type: number
+              description: Value
+              example: 22.10
+            discount:
+              type: number
+              description: Discount
+              example: 0
+            description:
+              type: string
+              description: Description
+              example: 'My Description'
+            movementTypes:
+              type: string
+              description: Movement Types
+              example: 'EXIT'
