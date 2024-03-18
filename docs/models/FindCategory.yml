@@ -1,0 +1,13 @@
+name: FindCategoriesResponseBody
+description: GET /categories expected request body
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        Items:
+          type: array
+          items:
+            - Category:
+              type: object
+              description: Category result object.

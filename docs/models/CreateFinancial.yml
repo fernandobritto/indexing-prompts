@@ -1,0 +1,48 @@
+name: CreateFinancialRequestBody
+description: POST /financial expected request body
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            type: object
+            properties:
+              accountId:
+                type: string
+                description: Account ID
+                example: 'a74cff51-cb1b-48de-a003-c79ad4630698'
+              category:
+                type: string
+                description: Category ID
+                example: 'a74cff51-cb1b-48de-a003-c79ad4630698'
+              date:
+                type: string
+                description: Date
+                example: '2024-03-20T00:00:00Z'
+              value:
+                type: number
+                description: Value
+                example: 29.70
+              discount:
+                type: number
+                description: Discount
+                example: 10.00
+              description:
+                type: string
+                description: Description
+                example: 'My Description'
+              movementTypes:
+                type: string
+                description: Movement Types
+                example: 'ENTRY'
+              typeTransaction:
+                type: string
+                description: Type Transaction
+                example: 'TRANSACTIONS'
+              financeSpot:
+                type: string
+                description: Unique Finance Spot identifier
+                example: 'finance-spot-main'
