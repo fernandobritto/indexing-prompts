@@ -44,7 +44,3 @@ lerna-debug.log*
 # DynamoDB Local files
 .dynamodb/
 resources/*
-
-# Openapi generated files
-openapi.json
-postman.json
