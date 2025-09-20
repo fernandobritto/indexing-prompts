@@ -1,7 +1,12 @@
 # compiled output
 /dist
+/.build
+/.esbuild
 /node_modules
-/build
+/jspm_packages
+/coverage
+/.webpack
+/swagger
 
 # Logs
 logs
@@ -11,13 +16,6 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
-# OS
-.DS_Store
-
-# Tests
-/coverage
-/.nyc_output
 
 # IDEs and editors
 /.idea
@@ -35,22 +33,22 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# dotenv environment variable files
+# ENV
 .env
-.env.development.local
-.env.test.local
-.env.production.local
+.env.test
 .env.local
 
-# temp directory
-.temp
-.tmp
+# Serverless directories
+.serverless
+.dynamodb
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# Openapi generated files
+openapi.json
+postman.json
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# SonarQube
+.scannerwork
+
+# OS generated files
+.DS_Store
+.DS_Store?

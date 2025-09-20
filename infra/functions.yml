@@ -1,0 +1,9 @@
+healthCheckCms:
+  handler: src/lambda/healthCheckHandler.handler
+  description: Check the health of the gateway
+  events:
+    - http:
+        path: indexing-prompts/health-check
+        method: GET
+        cors: true
+        documentation: ${file(docs/endpoints.yml):gatewayHealthCheckDoc}

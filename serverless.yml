@@ -1,0 +1,45 @@
+service: indexing-prompts
+frameworkVersion: '3'
+configValidationMode: error
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'hml'}
+  region: 'us-east-1'
+  runtime: nodejs20.x
+  profile: ${opt:profile, 'default'}
+
+  stackTags:
+    Name: ${self:service}
+    Product: 'indexing-prompts'
+
+  environment:
+    NODE_OPTIONS: --enable-source-maps
+    TEMPLATE_SERVICE_NAME: ${self:service}
+    TEMPLATE_D_REGION: ${aws:region}
+    TEMPLATE_STAGE_NAME: ${sls:stage}
+
+  iamRoleStatements: ${file(./serverless/iamroles.yml)}
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+
+  documentation: ${file(docs/documentation.yml)}
+
+  prune:
+    automatic: true
+    number: 1
+
+functions:
+  - ${file(./serverless/functions.yml)}
+
+# resources:
+#   - ${file(./serverless/resources.yml)}
+
+plugins:
+  - serverless-webpack
+  - serverless-openapi-documenter
+  - serverless-plugin-resource-tagging
+  - serverless-prune-plugin
+  - serverless-offline
