@@ -19,27 +19,24 @@ provider:
     TEMPLATE_D_REGION: ${aws:region}
     TEMPLATE_STAGE_NAME: ${sls:stage}
 
-  iamRoleStatements: ${file(./serverless/iamroles.yml)}
+  iamRoleStatements: ${file(./infra/iamroles.yml)}
 
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
-
-  documentation: ${file(docs/documentation.yml)}
 
   prune:
     automatic: true
     number: 1
 
 functions:
-  - ${file(./serverless/functions.yml)}
+  - ${file(./infra/functions.yml)}
 
-# resources:
-#   - ${file(./serverless/resources.yml)}
+resources:
+  - ${file(./infra/resources.yml)}
 
 plugins:
   - serverless-webpack
-  - serverless-openapi-documenter
   - serverless-plugin-resource-tagging
   - serverless-prune-plugin
   - serverless-offline

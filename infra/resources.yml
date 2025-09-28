@@ -1,1 +1,19 @@
 Resources:
+  IndexPromptTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: indexing-${sls:stage}-prompt-table
+      AttributeDefinitions:
+        - AttributeName: contextId
+          AttributeType: S
+        - AttributeName: createdAt
+          AttributeType: S
+      KeySchema:
+        - AttributeName: contextId
+          KeyType: HASH
+        - AttributeName: createdAt
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      # DeletionPolicy: Retain
