@@ -1,7 +1,11 @@
 - Effect: Allow
   Action:
-    - ec2:CreateNetworkInterface
-    - ec2:DescribeNetworkInterfaces
-    - ec2:DetachNetworkInterface
-    - ec2:DeleteNetworkInterface
-  Resource: '*'
+    - dynamodb:Scan
+    - dynamodb:Query
+    - dynamodb:GetItem
+    - dynamodb:PutItem
+    - dynamodb:UpdateItem
+    - dynamodb:DeleteItem
+  Resource:
+    - arn:aws:dynamodb:*:*:table/indexing-${sls:stage}-prompt-table
+    - arn:aws:dynamodb:*:*:table/indexing-${sls:stage}-prompt-table/index/*
