@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode: applies dark: variants when html.dark is set */
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Native dialog backdrop */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
